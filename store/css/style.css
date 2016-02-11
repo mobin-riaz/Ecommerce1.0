@@ -45,7 +45,7 @@ body{
 	font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 	line-height: 24px;
-	color: #6b6e80;
+	color: #000;
     background: #fff;
     overflow-x: hidden;
 	scrollbar-face-color: #333;
@@ -93,11 +93,11 @@ body{
 	background-color: #000000;
 }
 
-h1,h2,h3,h4,h5,h6{
+/*h1,h2,h3,h4,h5,h6{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 800;
 }
-
+*/
 a{
 	color: #3F00FF;
 	text-decoration: none;

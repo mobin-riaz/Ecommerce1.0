@@ -10,7 +10,6 @@
     <meta name="author" content="Mobin-Riaz">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Arillo</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
@@ -47,26 +46,25 @@
    foreach ($cursor as $document) {
 //      echo $document["price"] . "<br>";
 ?>
-<div class="col-md-4 col-sm-4 col-xs-12">
-	<div class="property-container">
-	  <div class="property-image">
-		<a href="productDetail.php?id=<?php echo $document['_id']?>">
-		<img src="<?php echo $document["smallImage"]; ?>" align="middle" alt="">
-		</a>
-		<div class="property-price">
-		  <h4></h4>
-		  <span><?php echo "$ ".$document["price"]; ?></span>
+	<div class="col-md-4">
+		<div class="property-container">
+			<div class="property-image">
+				<a href="productDetail.php?id=<?php echo $document['_id']?>">
+					<img src="<?php echo $document["smallImage"]; ?>"  class="img-responsive center-block" alt="">
+				</a>
+				<div class="property-price">
+					<span><?php echo "$ ".$document["price"]; ?></span>
+				</div>
+			</div>
+			<div class="property-content">
+				<h3><a href="productDetail.php?id=<?php echo $document['_id']?>"><?php echo substr($document["productName"], 0, 25)."..."; ?></a> <small>Qty: <?php echo $document["quantity"]; ?></small></h3>
+				<p><?php echo substr($document["smallDescription"], 0, 70)."..."; ?></p>
+			</div>
+			<div class="property-features">
+				<span>Color: <?php echo ucfirst($document["color"]); ?></span>
+			</div>
 		</div>
-	  </div>
-	  <div class="property-content">
-		<h3><a href="productDetail.php?id=<?php echo $document['_id']?>"><?php echo substr($document["productName"], 0, 25)."..."; ?></a> <small>Qty: <?php echo $document["quantity"]; ?></small></h3>
-		<p><?php echo substr($document["smallDescription"], 0, 70)."..."; ?></p>
-	  </div>
-	  <div class="property-features">
-		<span>Color: <?php echo ucfirst($document["color"]); ?></span>
-	  </div>
 	</div>
-  </div>
 <?php 	  
    }
 ?>

@@ -705,12 +705,8 @@ input[type="color"]:focus,
 }
 
 .property-image img{
-/*	max-width: 41%;
-	width: 100%;
-	height: auto;
-*/
-	max-height:220px;
-	margin: 15px 30% 0 30%;
+
+	height: 260px;
 }
 
 .property-status{

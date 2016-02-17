@@ -10,7 +10,6 @@
     <meta name="author" content="Mobin-Riaz">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Arillo</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
@@ -18,7 +17,7 @@
 <!-- Custom styles for this template -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800' rel='stylesheet' type='text/css'>
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<!--    <link href="css/style.css" rel="stylesheet"> -->
     <link href="css/responsive.css" rel="stylesheet">
 </head>
 
@@ -51,50 +50,40 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ) {
 <?php 	  
 //   }
 ?>
-<style>
-parent_div_1, #parent_div_2, #parent_div_3{
-    width:100px;
-    height:100px;
-    margin-right:10px;
-    float:left;
-}
-.child_div_1{
-    float:left;
-    margin-right:5px;
-}
-</style>
+
 <section class="container">
 	<?php
 		foreach ($cursor as $document) {
 	?>
-	<div id='parent_div_1'>
-
-	</div>
-
-	<div id='parent_div_2' style="width: 341px;height: 430px;">
-		<img src="<?php echo $document["largeImage"] ?>" style="max-width:220px; margin-left:55px">
+	<div class="row" style="margin-bottom: 30px;">
+	<div class='col-md-4'>
+		<img src="<?php echo $document["largeImage"] ?>" class="img-responsive center-block">
 	</div>
 
 
 
-	<div id='parent_div_3'style="width: 770px;height: 430px;">
+	<div class='col-md-8'>
 		<h1><?php echo $document["productName"] ?></h1>
 		<h4>Price: $<?php echo $document["price"] ?></h4>
 		<h4>Color: <?php echo ucfirst($document["color"]) ?></h4>
-		<h4><b>Product Description:<b></h4>
+		<h4><b>Product Description:</b></h4>
 		<h5><?php echo $document["smallDescription"] ?></h5>
 
 
 		<h5><?php echo $document["largeDescription"] ?>
 		</h5>
 		<form method="GET" action="ship-pay.php" >
-			<h4><b>Quantity: </b><input type="text" name="qty"size="4"></h4>
-			<input type="Submit" value="Add to Cart">
+			<h4><b>Quantity: </b>
+			<input type="text" name="qty"size="4">
+			<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+			</h4>
+			<input type="Submit" class="btn btn-primary" value="Add to Cart">
 		</form>
 	</div>
 	<?php 	
 	}
 	?>
+	</div>
 </section>
 
 

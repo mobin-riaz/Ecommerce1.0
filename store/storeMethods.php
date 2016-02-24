@@ -1,6 +1,11 @@
 <?php
+// Start the session
+session_start();
+$_SESSION["orderId"] = uniqid();
+?>
+<?php
 	echo "outside if";
-	echo $_GET['id'];
+//	echo $_GET['id'];
 
 if(isset($_REQUEST['Submit']))
 {
@@ -20,6 +25,7 @@ function initializeOrder() {
 	
    $document = array( 
       "id" => $_POST['id'], 
+	  "orderId" => $_SESSION["orderId"],
       "qty" => $_POST['qty'], 
       "fullName" => $_POST['fullName'], 
       "address" => $_POST['address'], 
@@ -27,7 +33,7 @@ function initializeOrder() {
       "state" => $_POST['state'], 
       "country" => $_POST['country'], 
       "phone" => $_POST['phone'], 
-      "creditCard" => $_POST['field'], 
+      "creditCard" => $_POST['creditCard'], 
       "cardType" => $_POST['cartType'], 
       "ccv" => $_POST['ccv'], 
       "ccExpiry" => $_POST['ccExpiry'], 

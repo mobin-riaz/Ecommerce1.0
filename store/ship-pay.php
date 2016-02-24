@@ -19,9 +19,11 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
 <!--    <link href="css/style.css" rel="stylesheet"> -->
     <link href="css/responsive.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js">
-	</script>
+<!-- Below scripts are for jquery validation -->	
+<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<!-- Below scripts is for creditCard check -->
+<script src="creditcard.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -41,23 +43,23 @@
 				<h3>Shippment</h3>
 					<div class="form-group">
 						<label for="">Full Name:</label>
-						<input type="text" class="form-control" name="fullName" required>
+						<input type="text" class="form-control" name="fullName" value="Mobin Riaz" required>
 					</div>
 					<div class="form-group">
 						<label for="">Address:</label>
-						<input type="text" class="form-control" name="address" required>
+						<input type="text" class="form-control" name="address" value="1002 E Wilson Ave" required>
 					</div>
 					<div class="form-group">
 						<label for="">City:</label>
-						<input type="text" class="form-control" name="city" required>
+						<input type="text" class="form-control" name="city" value="Lombard" required>
 					</div>
 					<div class="form-group">
 						<label for="">State:</label>
-						<input type="text" class="form-control" name="state" required>
+						<input type="text" class="form-control" name="state" value="IL" required>
 					</div>
 					<div class="form-group">
 						<label for="">Country:</label>
-						<input type="text" class="form-control" name="country" required>
+						<input type="text" class="form-control" name="country" value="USA" required>
 					</div>
 					<div class="form-group">
 						<label for="">Phone:</label>
@@ -68,26 +70,26 @@
 				<h3>Payment</h3>
 					<div class="form-group">
 						<label for="">Credit Card#:</label>
-						<input type="text" class="form-control left" id="field" name="field" required>
+						<input type="text" class="form-control" id="creditCard" name="creditCard" value="6011743165479303" required>
 					</div>
 					<div class="form-group">
 						<label for="">Card Type:</label>
-						<input type="text" class="form-control" name="cartType" required>
+						<input type="text" class="form-control" id="cardType" name="cartType" value="Discover" required>
 					</div>
 					<div class="form-group">
 						<label for="">CCV:</label>
-						<input type="text" class="form-control" name="ccv" required>
+						<input type="text" class="form-control" name="ccv" value="223" required>
 					</div>
 					<div class="form-group">
 						<label for="">CC Expiry:</label>
-						<input type="text" class="form-control" name="ccExpiry" required>
+						<input type="text" class="form-control" name="ccExpiry" value="02/2016" required>
 					</div>
 					<div class="form-group">
 						<label for="">Email:</label>
-						<input id="cemail" type="email" class="form-control" name="email" required>
+						<input id="cemail" type="email" class="form-control" name="email" value="mob-riz@yaho.com" required>
 					</div>
 					<div class="form-group">
-						<input type="Submit" class="btn btn-primary" name="Submit" value="Continue">
+						<input type="Submit" onClick="testCreditCard(); return false;" class="btn btn-primary" name="Submit" value="Continue">
 					</div>		 
 				</div>
 			</div>
@@ -100,21 +102,23 @@
 <footer class="container">
 	<?php include 'footer.php'; ?>
 </footer>
-<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
+<!-- Below scripts are for jquery validation and  -->
 <script>
-jQuery.validator.setDefaults({
-  debug: true,
-  success: "valid"
-});
-$("#ship-pay-form").validate(
-  rules: {
-    field: {
-      required: true,
-      creditcard: true
-    }
-  }
-);
+//checkCreditCard (cardnumber, cardname)
+//cardnumber comes form input field
+//cardname comes from input tag
+function testCreditCard() {
+  if (checkCreditCard (document.getElementById('creditCard').value,document.getElementById('cardType').value)) {
+//    alert ("Credit card has a valid format");
+	$("#ship-pay-form").validate();
+  } 
+  else {
+	  alert (ccErrors[ccErrorNo]);
+	};
+  
+}
+
 </script>
 </body>
 </html>

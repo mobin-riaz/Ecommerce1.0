@@ -26,7 +26,11 @@
 <header class="container">
 	<?php include 'header.php'; ?>
 </header>
-
+<?php 
+session_start();
+//if($_SESSION["trackOrderId" == db session )
+echo $_SESSION["trackOrderId"]; 
+?>
 <section class="container">
 	<div class="row">
 		<form method="POST" action="thankyou.php" >
@@ -49,7 +53,7 @@
 						<button type="button" class="btn btn-primary">Delete Item</button>
 						</h4>
 					</div>
-					<div class='col-md-2'>
+<!--				<div class='col-md-2'>
 						<img src="http://ecx.images-amazon.com/images/I/51H88Nrhl9L._SY220_.jpg" style="height:80px"  class="img-responsive center-block">
 					</div>
 					<div class='col-md-10' style="border-bottom: 1px solid #DCDCDC;">
@@ -74,7 +78,7 @@
 						<button type="button" class="btn btn-primary">Update</button>
 						<button type="button" class="btn btn-primary">Delete Item</button>
 						</h4>
-					</div>
+					</div> -->
 				</div>				
 				<div class='col-md-3' style="border: 1px solid #DCDCDC; margin-bottom: 40px;">
 					<h3>Shipping To:</h3>
